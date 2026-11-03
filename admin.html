@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#100b1d"><title>Admin Studio — HIRO SEGAWA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"><link rel="stylesheet" href="admin.css">
+</head>
+<body class="admin-page">
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <header class="topbar admin-topbar"><a class="brand" href="index.html"><span class="brand-mark">✿</span><span>HIRO <b>SEGAWA</b><small>ADMIN STUDIO</small></span></a><a class="text-btn" href="index.html">← Back to website</a></header>
+  <main class="admin-main">
+    <section class="admin-heading"><span class="eyebrow">CREATOR CONTROL ROOM</span><h1>Wallpaper <em>studio.</em></h1><p>Upload, organize and prepare your wallpapers for the live gallery.</p></section>
+    <div class="admin-notice"><strong>Important — static GitHub Pages site</strong><br>Uploads are saved in this browser first. To make them visible to everyone, use <b>Export for GitHub</b> and upload the generated <code>wallpapers</code> folder to your repository. This dashboard has no secure login; don't store private content here.</div>
+    <div class="admin-layout">
+      <section class="admin-panel upload-panel">
+        <div class="panel-title"><div><span class="eyebrow">01 / ADD NEW</span><h2>Upload wallpaper</h2></div><span class="panel-icon">＋</span></div>
+        <label class="drop-zone" id="dropZone"><input type="file" id="imageInput" accept="image/*" multiple hidden><span class="upload-symbol">↑</span><strong>Choose images or drop them here</strong><small>JPG, PNG or WEBP · optimized automatically</small><button type="button" class="secondary-btn" id="chooseFiles">Choose files</button></label>
+        <div id="selectedFiles" class="selected-files">No images selected yet.</div>
+        <div class="form-grid"><label>Wallpaper title<input id="wallpaperTitle" maxlength="60" placeholder="e.g. Sakura Dream" required></label><label>Category<select id="wallpaperCategory"><option>Anime</option><option>Nature</option><option>Sky</option><option>Flowers</option><option>Cars</option><option>Galaxy</option><option>Mountains</option><option>City</option><option>Aesthetic</option><option>Ocean</option><option>Other</option></select></label><label class="full-field">Tags / description<input id="wallpaperTags" maxlength="140" placeholder="pink, sakura, dreamy"></label></div>
+        <div class="preview-wrap" id="previewWrap" hidden><img id="imagePreview" alt="Selected wallpaper preview"></div>
+        <button class="primary-btn save-btn" id="saveWallpaper" disabled>Save wallpaper to drafts <span>♡</span></button>
+        <p class="form-hint">Images are resized to a mobile-friendly size before saving.</p>
+      </section>
+      <section class="admin-panel manage-panel">
+        <div class="panel-title"><div><span class="eyebrow">02 / YOUR LIBRARY</span><h2>Saved drafts <span id="draftCount" class="count-badge">0</span></h2></div><span class="panel-icon">▤</span></div>
+        <div id="draftList" class="draft-list"><div class="empty-drafts">Your uploaded wallpapers will appear here.</div></div>
+        <div class="export-box"><h3>Ready to publish?</h3><p>Package your saved images and gallery data into one ZIP for GitHub Pages.</p><button class="primary-btn" id="exportBtn">Export for GitHub <span>↓</span></button><button class="clear-btn" id="clearDrafts">Clear all drafts</button></div>
+      </section>
+    </div>
+    <section class="publish-steps"><span class="eyebrow">03 / PUBLISH YOUR WALLPAPERS</span><h2>Take your collection <em>live.</em></h2><ol><li>Tap <b>Export for GitHub</b> and download the ZIP.</li><li>Extract it. You will get a <code>wallpapers</code> folder.</li><li>Open your GitHub repository and upload that folder to the same level as <code>index.html</code>.</li><li>Commit changes. GitHub Pages will update your public gallery.</li></ol><p>Keep the existing <code>wallpapers</code> folder when adding more later; export again after adding new drafts.</p></section>
+  </main>
+  <div class="toast" id="toast"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script><script src="admin.js"></script>
+</body></html>

@@ -1,30 +1,23 @@
 # HIRO SEGAWA — Wallpaper Universe
 
-A responsive wallpaper discovery website built with vanilla HTML, CSS and JavaScript. No build step or framework installation is required.
+A responsive static wallpaper gallery for GitHub Pages.
 
-## Run locally
-Open `index.html` in a browser. For best results, use a local static server or the VS Code Live Server extension.
+## Files
+- `index.html` — public wallpaper gallery
+- `style.css`, `script.js` — public site styles and gallery logic
+- `admin.html`, `admin.css`, `admin.js` — browser-based wallpaper admin studio
+- `wallpapers/` — published wallpaper assets and `wallpapers.json` manifest
 
-## Publish with GitHub Pages
-1. Create a new GitHub repository (for example, `hiro-segawa-wallpapers`).
-2. Upload `index.html`, `style.css`, and `script.js` to the repository root.
-3. Open **Settings → Pages**.
-4. Under **Build and deployment**, choose **Deploy from a branch**.
-5. Select `main` and `/ (root)`, then Save.
-6. Wait for GitHub Pages to provide your public website URL.
+## Add wallpapers
+1. Open `admin.html` on your deployed site.
+2. Select one or more images, set a title/category/tags, and save drafts.
+3. Click **Export for GitHub**. This downloads a ZIP containing new image files and an updated `wallpapers.json` manifest.
+4. Extract the ZIP and upload the `wallpapers` folder contents into the repository's existing `wallpapers/` folder. Commit the changes.
 
-## Features
-- Responsive mobile and desktop layout
-- Category filters and live search
-- Wallpaper preview modal and download action
-- Favorites saved in browser localStorage
-- Featured / alphabetical sorting
-- Dark and light themes
-- Lazy-loaded wallpaper images
-- Animated glassmorphism-inspired UI
+The public gallery automatically loads `wallpapers/wallpapers.json`.
 
-## Wallpaper images
-The demo gallery uses remotely hosted Unsplash image URLs. Internet access is required to load them. Replace image URLs in `script.js` with your own hosted wallpaper files whenever you like.
+## Important hosting note
+GitHub Pages is static hosting. The admin studio stores drafts in the current browser only; it does not upload files directly to GitHub or provide secure authentication. Exporting and committing the generated wallpaper folder is what publishes images for all visitors. The Admin link is public, so do not treat it as a private or secure dashboard.
 
-
-To add your own images, upload them into the wallpapers/ folder and follow ADD_WALLPAPERS_GUIDE.txt. The gallery supports local wallpapers/ paths.
+## Publish
+Upload all project files to the repository root. In GitHub, open **Settings → Pages**, select **Deploy from a branch**, choose `main` and `/(root)`.
