@@ -1,7 +1,11 @@
 const categories = [
   ["All","✧"],["Anime","♡"],["Nature","🌿"],["Sky","☁"],["Flowers","🌸"],["Cars","🚘"],["Galaxy","✦"],["Mountains","⛰"],["City","🌃"],["Aesthetic","୨୧"],["Ocean","🌊"]
 ];
-const photo = (id,w=850) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&q=85`;
+// Use a local file from /wallpapers/ OR an Unsplash photo ID.
+const photo = (source,w=850) => {
+  if (source.startsWith("wallpapers/") || source.startsWith("./wallpapers/") || source.startsWith("https://") || source.startsWith("http://")) return source;
+  return `https://images.unsplash.com/${source}?auto=format&fit=crop&w=${w}&q=85`;
+};
 const items = [
 ["Sakura Daydream","Anime","soft, pink, dreamy", "photo-1490750967868-88aa4486c946"],
 ["Golden Hour Meadow","Nature","golden, meadow, warm","photo-1470252649378-9c29740c9fa8"],

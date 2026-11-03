@@ -1,0 +1,21 @@
+HIRO SEGAWA — ADD YOUR OWN WALLPAPERS
+
+1) In your GitHub repository, open the project root.
+2) Open the wallpapers folder. If it does not exist, create it by choosing Add file > Create new file and naming it wallpapers/keep.txt, then commit.
+3) Open wallpapers > Add file > Upload files. Select your JPG/PNG/WebP wallpaper from your phone and commit changes. Example filename: hiro-cute-01.jpg
+4) Open script.js and find the `const items = [` section near the top.
+5) Add a new line inside that list (before the closing ].map(...)), using this format:
+
+["Hiro Cute Smile","Anime","cute, purple, school outfit","wallpapers/hiro-cute-01.jpg"],
+
+6) Commit changes. Wait about 1–3 minutes, then refresh your live website.
+
+IMPORTANT:
+- The filename and path must match exactly, including capital letters.
+- Categories should match existing names, e.g. Anime, Nature, Sky, Flowers, Cars, Galaxy, Mountains, City, Aesthetic, Ocean.
+- Do not put the new line after the closing `].map(...)`; put it before the final `].map((x,i)=>...` line.
+- Keep the comma after each new entry.
+- This updated script.js supports local images in wallpapers/ as well as existing Unsplash photo IDs.
+
+PHONE TIP:
+On GitHub mobile site, use your browser menu > Desktop site if Upload files is difficult.

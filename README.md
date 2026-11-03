@@ -25,3 +25,6 @@ Open `index.html` in a browser. For best results, use a local static server or t
 
 ## Wallpaper images
 The demo gallery uses remotely hosted Unsplash image URLs. Internet access is required to load them. Replace image URLs in `script.js` with your own hosted wallpaper files whenever you like.
+
+
+To add your own images, upload them into the wallpapers/ folder and follow ADD_WALLPAPERS_GUIDE.txt. The gallery supports local wallpapers/ paths.
