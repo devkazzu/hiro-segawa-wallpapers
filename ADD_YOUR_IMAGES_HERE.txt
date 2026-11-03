@@ -1,0 +1,2 @@
+Upload your wallpaper image files into this folder. Example: hiro-cute-01.jpg
+Then add a matching entry in script.js. See ADD_WALLPAPERS_GUIDE.txt in the project root.
