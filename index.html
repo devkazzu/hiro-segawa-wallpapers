@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#100b1d" />
+  <meta name="description" content="Discover beautiful anime-inspired, nature, sky, flower, car and aesthetic wallpapers at Hiro Segawa." />
+  <title>HIRO SEGAWA — Wallpaper Universe</title>
+  <link rel="preconnect" href="https://images.unsplash.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Hiro Segawa home"><span class="brand-mark">✿</span><span>HIRO <b>SEGAWA</b><small>WALLPAPER UNIVERSE</small></span></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#discover">Discover</a><a href="#categories">Categories</a><a href="#about">About</a>
+    </nav>
+    <div class="top-actions">
+      <button class="icon-btn" id="themeBtn" aria-label="Toggle theme" title="Toggle theme">☼</button>
+      <button class="favorites-top" id="favoritesToggle">♡ <span>Favorites</span> <i id="favCount">0</i></button>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="pulse"></span> YOUR DAILY DOSE OF AESTHETIC</div>
+        <h1>Find your<br/><em>wallpaper</em> mood.</h1>
+        <p>A little world of beautiful screens — anime feels, dreamy skies, nature escapes and everything in between.</p>
+        <div class="hero-buttons"><a class="primary-btn" href="#discover">Explore collection <span>↗</span></a><a class="text-btn" href="#categories">Browse categories <span>↓</span></a></div>
+        <div class="hero-stats"><div><strong>50+</strong><span>Curated wallpapers</span></div><div><strong>10</strong><span>Visual worlds</span></div><div><strong>∞</strong><span>Fresh inspiration</span></div></div>
+      </div>
+      <div class="hero-art" aria-label="Decorative wallpaper preview">
+        <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div>
+        <div class="hero-image hero-image-back"></div><div class="hero-image hero-image-front"></div>
+        <div class="floating-note note-top">✧ made for your screen</div><div class="floating-note note-bottom">soft moments, saved forever ♡</div>
+        <div class="sparkle sparkle-one">✦</div><div class="sparkle sparkle-two">✧</div>
+      </div>
+      <div class="scroll-cue">SCROLL TO EXPLORE <span>⌄</span></div>
+    </section>
+
+    <section class="category-section" id="categories">
+      <div class="section-heading"><div><span class="eyebrow">PICK YOUR VIBE</span><h2>Explore <em>worlds</em></h2></div><span class="section-caption">One tap to your next lock screen.</span></div>
+      <div class="category-pills" id="categoryPills"></div>
+    </section>
+
+    <section class="gallery-section" id="discover">
+      <div class="gallery-heading">
+        <div><span class="eyebrow">THE COLLECTION</span><h2 id="galleryTitle">Freshly <em>picked</em></h2><p id="resultText">A handpicked mix for your screen.</p></div>
+        <div class="gallery-controls">
+          <label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Search wallpapers..." aria-label="Search wallpapers"><kbd>⌘ K</kbd></label>
+          <select id="sortSelect" aria-label="Sort wallpapers"><option value="featured">Featured</option><option value="az">A — Z</option><option value="za">Z — A</option></select>
+        </div>
+      </div>
+      <div class="wallpaper-grid" id="wallpaperGrid" aria-live="polite"></div>
+      <div class="load-wrap"><button class="secondary-btn" id="loadMore">Load more wallpapers <span>＋</span></button></div>
+    </section>
+
+    <section class="quote-banner">
+      <span class="quote-flower">✿</span><p>“Your screen is a tiny window<br/>to a world you love.”</p><span class="quote-credit">— HIRO SEGAWA</span>
+    </section>
+
+    <section class="about-section" id="about">
+      <div class="about-mark">HS<span>✿</span></div>
+      <div><span class="eyebrow">A SMALL CORNER OF THE INTERNET</span><h2>Made for the <em>love of beautiful things.</em></h2><p>HIRO SEGAWA is a wallpaper discovery space for people who love dreamy visuals, anime-inspired moods and little details that make a screen feel personal. Save your favourites and make every unlock feel special.</p></div>
+      <a class="back-top" href="#">Back to top ↑</a>
+    </section>
+  </main>
+
+  <footer><a class="brand footer-brand" href="#"><span class="brand-mark">✿</span><span>HIRO <b>SEGAWA</b><small>WALLPAPER UNIVERSE</small></span></a><span>Curated with ♡ · Made for every screen</span><span>© <span id="year"></span> Hiro Segawa</span></footer>
+
+  <div class="modal" id="wallpaperModal" aria-hidden="true">
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="modalClose" aria-label="Close preview">×</button>
+      <div class="modal-image-wrap"><img id="modalImage" alt="Wallpaper preview"></div>
+      <div class="modal-info"><div><span class="eyebrow" id="modalCategory">CATEGORY</span><h3 id="modalTitle">Wallpaper title</h3><p id="modalTags"></p></div><div class="modal-actions"><button class="secondary-btn" id="modalFavorite">♡ Save</button><a class="primary-btn" id="downloadBtn" href="#" download>Download ↧</a></div></div>
+    </div>
+  </div>
+  <div class="toast" id="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>

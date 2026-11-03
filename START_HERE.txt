@@ -1,0 +1,14 @@
+HIRO SEGAWA WALLPAPER WEBSITE
+
+PHONE / COMPUTER PREVIEW:
+1. Extract this ZIP first.
+2. Open index.html in Chrome or another browser.
+3. Internet is required for the remote wallpaper photos and Google Fonts.
+
+GITHUB PAGES:
+1. Create a GitHub repository.
+2. Upload index.html, style.css, script.js and README.md directly into the repository root (not inside another folder).
+3. Open Settings > Pages.
+4. Choose Deploy from a branch, select main and /(root), then Save.
+
+If index.html does not preview inside the ChatGPT app, download/extract the ZIP and open it from your phone's Files app using Chrome.
