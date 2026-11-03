@@ -2,35 +2,46 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#100b1d"><title>Admin Studio — HIRO SEGAWA</title>
+  <meta name="theme-color" content="#100b1d"><title>Private Admin Studio — HIRO SEGAWA</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css"><link rel="stylesheet" href="admin.css">
+  <style>
+    .auth-wrap{max-width:520px;margin:9vh auto;padding:34px 26px;border:1px solid #493454;border-radius:26px;background:rgba(17,8,28,.94);box-shadow:0 25px 80px #0006}
+    .auth-wrap h1{font:700 2.5rem 'Playfair Display',serif;margin:10px 0}.auth-wrap p{color:#b8aabd;line-height:1.7}.auth-wrap label{display:block;margin:18px 0 7px;color:#e9ddec}.auth-wrap input{width:100%;padding:15px;border:1px solid #59425e;border-radius:13px;background:#1b1423;color:#fff;font:inherit}.auth-wrap button{width:100%;margin-top:20px}.auth-error{color:#ff9da9!important;min-height:24px}.admin-hidden{display:none!important}.admin-topbar .text-btn{color:#b9a9c1}
+    .cloud-status{padding:12px 16px;border:1px solid #4d3b58;border-radius:14px;color:#e7c5e1;margin:18px 0}.draft-item img{object-fit:cover}
+  </style>
 </head>
 <body class="admin-page">
   <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
   <header class="topbar admin-topbar"><a class="brand" href="index.html"><span class="brand-mark">✿</span><span>HIRO <b>SEGAWA</b><small>ADMIN STUDIO</small></span></a><a class="text-btn" href="index.html">← Back to website</a></header>
-  <main class="admin-main">
-    <section class="admin-heading"><span class="eyebrow">CREATOR CONTROL ROOM</span><h1>Wallpaper <em>studio.</em></h1><p>Upload, organize and prepare your wallpapers for the live gallery.</p></section>
-    <div class="admin-notice"><strong>Important — static GitHub Pages site</strong><br>Uploads are saved in this browser first. To make them visible to everyone, use <b>Export for GitHub</b> and upload the generated <code>wallpapers</code> folder to your repository. This dashboard has no secure login; don't store private content here.</div>
+
+  <section class="auth-wrap" id="loginPanel">
+    <span class="eyebrow">PRIVATE CREATOR ACCESS</span><h1>Welcome <em>back.</em></h1>
+    <p>This control room is private. Sign in with the administrator account you created in Supabase. Visitors can browse and download public wallpapers without signing in.</p>
+    <form id="loginForm"><label for="adminEmail">Admin email</label><input id="adminEmail" type="email" autocomplete="username" required placeholder="you@example.com"><label for="adminPassword">Password</label><input id="adminPassword" type="password" autocomplete="current-password" required placeholder="Your password"><button class="primary-btn" type="submit" id="loginBtn">Sign in to Admin Studio →</button></form>
+    <p class="auth-error" id="authError" role="alert"></p>
+  </section>
+
+  <main class="admin-main admin-hidden" id="adminDashboard">
+    <section class="admin-heading"><span class="eyebrow">PRIVATE CREATOR CONTROL ROOM</span><h1>Wallpaper <em>studio.</em></h1><p>Upload once. Your wallpapers become visible to everyone around the world.</p><button class="secondary-btn" id="logoutBtn">Sign out</button></section>
+    <div class="cloud-status" id="cloudStatus">Connected to cloud storage.</div>
     <div class="admin-layout">
       <section class="admin-panel upload-panel">
         <div class="panel-title"><div><span class="eyebrow">01 / ADD NEW</span><h2>Upload wallpaper</h2></div><span class="panel-icon">＋</span></div>
-        <label class="drop-zone" id="dropZone"><input type="file" id="imageInput" accept="image/*" multiple hidden><span class="upload-symbol">↑</span><strong>Choose images or drop them here</strong><small>JPG, PNG or WEBP · optimized automatically</small><button type="button" class="secondary-btn" id="chooseFiles">Choose files</button></label>
+        <label class="drop-zone" id="dropZone"><input type="file" id="imageInput" accept="image/jpeg,image/png,image/webp" multiple hidden><span class="upload-symbol">↑</span><strong>Choose images or drop them here</strong><small>JPG, PNG or WEBP · uploads to public cloud gallery</small><button type="button" class="secondary-btn" id="chooseFiles">Choose files</button></label>
         <div id="selectedFiles" class="selected-files">No images selected yet.</div>
-        <div class="form-grid"><label>Wallpaper title<input id="wallpaperTitle" maxlength="60" placeholder="e.g. Sakura Dream" required></label><label>Category<select id="wallpaperCategory"><option>Anime</option><option>Nature</option><option>Sky</option><option>Flowers</option><option>Cars</option><option>Galaxy</option><option>Mountains</option><option>City</option><option>Aesthetic</option><option>Ocean</option><option>Other</option></select></label><label class="full-field">Tags / description<input id="wallpaperTags" maxlength="140" placeholder="pink, sakura, dreamy"></label></div>
+        <div class="form-grid"><label>Wallpaper title<input id="wallpaperTitle" maxlength="60" placeholder="e.g. Sakura Dream" required></label><label>Category<select id="wallpaperCategory"><option>Anime</option><option>Nature</option><option>Sky</option><option>Flowers</option><option>Cars</option><option>Galaxy</option><option>Mountains</option><option>City</option><option>Aesthetic</option><option>Ocean</option><option>Other</option></select></label><label class="full-field">Tags / description<input id="wallpaperTags" maxlength="180" placeholder="pink, sakura, dreamy"></label></div>
         <div class="preview-wrap" id="previewWrap" hidden><img id="imagePreview" alt="Selected wallpaper preview"></div>
-        <button class="primary-btn save-btn" id="saveWallpaper" disabled>Save wallpaper to drafts <span>♡</span></button>
-        <p class="form-hint">Images are resized to a mobile-friendly size before saving.</p>
+        <button class="primary-btn save-btn" id="saveWallpaper" disabled>Publish wallpaper for everyone <span>♡</span></button>
+        <p class="form-hint">After publishing, the wallpaper appears on the public website for every visitor.</p>
       </section>
-      <section class="admin-panel manage-panel">
-        <div class="panel-title"><div><span class="eyebrow">02 / YOUR LIBRARY</span><h2>Saved drafts <span id="draftCount" class="count-badge">0</span></h2></div><span class="panel-icon">▤</span></div>
-        <div id="draftList" class="draft-list"><div class="empty-drafts">Your uploaded wallpapers will appear here.</div></div>
-        <div class="export-box"><h3>Ready to publish?</h3><p>Package your saved images and gallery data into one ZIP for GitHub Pages.</p><button class="primary-btn" id="exportBtn">Export for GitHub <span>↓</span></button><button class="clear-btn" id="clearDrafts">Clear all drafts</button></div>
-      </section>
+      <section class="admin-panel manage-panel"><div class="panel-title"><div><span class="eyebrow">02 / PUBLIC LIBRARY</span><h2>Published wallpapers <span id="draftCount" class="count-badge">0</span></h2></div><span class="panel-icon">▤</span></div><div id="draftList" class="draft-list"><div class="empty-drafts">Loading cloud library…</div></div></section>
     </div>
-    <section class="publish-steps"><span class="eyebrow">03 / PUBLISH YOUR WALLPAPERS</span><h2>Take your collection <em>live.</em></h2><ol><li>Tap <b>Export for GitHub</b> and download the ZIP.</li><li>Extract it. You will get a <code>wallpapers</code> folder.</li><li>Open your GitHub repository and upload that folder to the same level as <code>index.html</code>.</li><li>Commit changes. GitHub Pages will update your public gallery.</li></ol><p>Keep the existing <code>wallpapers</code> folder when adding more later; export again after adding new drafts.</p></section>
+    <section class="publish-steps"><span class="eyebrow">03 / HOW IT WORKS</span><h2>One upload. <em>Everyone sees it.</em></h2><p>Images are stored in Supabase Storage and their details are saved in the cloud database. Only your authenticated admin account can publish or delete. Public visitors can only view published wallpapers.</p></section>
   </main>
   <div class="toast" id="toast"></div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script><script src="admin.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script src="admin.js"></script>
 </body></html>

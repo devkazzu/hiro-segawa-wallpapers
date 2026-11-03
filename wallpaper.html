@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#100b1d"><meta name="description" content="Preview and download beautiful wallpapers from HIRO SEGAWA.">
+  <title>Wallpaper Preview — HIRO SEGAWA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"><link rel="stylesheet" href="wallpaper-detail.css">
+</head>
+<body class="detail-page">
+  <header class="topbar detail-topbar">
+    <a class="brand" href="index.html"><span class="brand-mark">✿</span><span>HIRO <b>SEGAWA</b><small>WALLPAPER UNIVERSE</small></span></a>
+    <a class="detail-back" href="index.html">← Back to gallery</a>
+  </header>
+  <main class="detail-main">
+    <div class="detail-breadcrumb"><a href="index.html">Home</a><span>／</span><span>Wallpaper details</span></div>
+    <section class="detail-layout" id="detailContent" aria-live="polite">
+      <div class="detail-loading">Loading your wallpaper… ♡</div>
+    </section>
+    <section class="detail-note"><span>✧</span><p>Find your mood. Save your moment. Make your screen yours.</p></section>
+  </main>
+  <footer><a class="brand footer-brand" href="index.html"><span class="brand-mark">✿</span><span>HIRO <b>SEGAWA</b><small>WALLPAPER UNIVERSE</small></span></a><span>Curated with ♡ · Made for every screen</span><span>© <span id="year"></span> Hiro Segawa</span></footer>
+  <div class="toast" id="toast"></div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="supabase-config.js"></script><script src="wallpaper-detail.js"></script>
+</body></html>
