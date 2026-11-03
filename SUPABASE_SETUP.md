@@ -1,5 +1,7 @@
 # HIRO SEGAWA — Private Admin + Public Cloud Wallpapers
 
+> Supabase project URL and publishable key are already filled in `supabase-config.js`. The key is a frontend publishable key; keep Row Level Security enabled and never use a service-role/secret key in the website.
+
 This version fixes the two problems:
 - Visitors can open the public gallery, wallpaper details and downloads.
 - Only the Supabase administrator account can sign in to `/admin.html`, upload wallpapers or delete them.

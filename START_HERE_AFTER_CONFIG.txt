@@ -1,0 +1,9 @@
+HIRO SEGAWA — SUPABASE CONFIGURED
+
+Your Supabase Project URL and publishable key are already inserted into supabase-config.js.
+
+BEFORE IT WORKS: open SUPABASE_SETUP.md and complete sections 2 and 3. In the SQL, replace YOUR_ADMIN_EMAIL with the exact email you will use to sign into Admin Studio. Run the SQL in Supabase SQL Editor, then create that user under Authentication > Users.
+
+Then upload/replace the website files in your GitHub repository root and wait for GitHub Pages to deploy. Open /admin.html to sign in. The public gallery is the homepage.
+
+Do not share your admin password. Never put a service_role/secret key into frontend files.
